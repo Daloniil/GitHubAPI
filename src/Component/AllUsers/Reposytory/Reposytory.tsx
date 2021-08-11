@@ -1,20 +1,23 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
 import {instance} from "../../../API/API";
-import {UserType} from "../../../Types";
 
 
 type Props = {
     userLogin: string
 }
+type ReposytoryLenghtType = {
+    public_repos: number
+}
+
 
 export const Reposytory: React.FC<Props> = (props) => {
     const dispatch = useDispatch()
-    const [repo, stateRepo] = useState({} as UserType)
+    const [repo, stateRepo] = useState({} as ReposytoryLenghtType)
 
     const GitPes = {
         getReposetors(name: string) {
-            return instance.get<UserType>(`users/${name}`).then(res => res.data)
+            return instance.get<ReposytoryLenghtType>(`users/${name}`).then(res => res.data)
         },
     }
 
