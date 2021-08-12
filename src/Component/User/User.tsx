@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {getReposytorySelector, getReposytorysSelector, getUserSelector} from "../../users-selector";
 import {actions, getReposytory} from "../../Redux/users-reducer";
-import {UserReposytoryType} from "../../Types";
+import {typeColors, UserReposytoryType} from "../../Types";
 import s from './StyleUser/User.module.css'
 
 
@@ -17,6 +17,36 @@ export const User: React.FC = () => {
         dispatch(getReposytory(user.login, value))
 
     }, [value])
+
+    let color: any
+    if (user.followers <= 10) {
+        color = "10"
+    } else if (user.followers <= 100 && user.followers > 10) {
+        color = "100"
+    } else if (user.followers <= 500 && user.followers > 100) {
+        color = "500"
+    } else if (user.followers <= 1000 && user.followers > 50) {
+        color = "1000"
+    } else if (user.followers <= 2000 && user.followers > 1000) {
+        color = "2000"
+    } else if (user.followers <= 5000 && user.followers > 2000) {
+        color = "5000"
+    } else if (user.followers <= 8000 && user.followers > 5000) {
+        color = "8000"
+    } else if (user.followers <= 10000 && user.followers > 8000) {
+        color = "10000"
+    } else if (user.followers <= 20000 && user.followers > 10000) {
+        color = "20000"
+    } else if (user.followers <= 50000 && user.followers > 20000) {
+        color = "50000"
+    } else if (user.followers <= 100000 && user.followers > 50000) {
+        color = "100000"
+    } else if (user.followers <= 500000 && user.followers > 100000) {
+        color = "500000"
+    } else if (user.followers <= 1000000 && user.followers > 500000) {
+        color = "1000000"
+    }
+
 
     return (
         <div className={s.content}>
@@ -35,7 +65,9 @@ export const User: React.FC = () => {
                     <p>{user.email == null ? "" : `Email:${user.email}`}</p>
                     <p> {user.location == null ? "" : `Location:${user.location}`}</p>
                     <p>Join Date: {user.created_at}</p>
-                    <p>{user.followers} Followers</p>
+                    <p style={{
+                        fontWeight: 800, color: typeColors[color]
+                    }}> {user.followers} Followers</p>
                     <p>Following {user.following}</p>
 
                 </div>
