@@ -1,4 +1,4 @@
-import {Action, applyMiddleware, combineReducers, createStore} from "redux";
+import {Action, applyMiddleware, combineReducers, compose, createStore} from "redux";
 import thunkMidleware, {ThunkAction} from "redux-thunk"
 import {usersReducer} from "./users-reducer";
 
@@ -17,7 +17,6 @@ export type BaseThunkType<A extends Action, R = Promise<void>> = ThunkAction<R, 
 
 
 export  type actionsType<T> = T extends { [keys: string]: (...args: any[]) => infer U } ? U : never
-
 
 // @ts-ignore
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
