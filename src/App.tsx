@@ -11,7 +11,6 @@ const App: React.FC = () => {
     const mode = useSelector(getModeSelector)
 
     return (
-
         <div className="App">
             {mode == false ? <Users/> : <User/>}
         </div>

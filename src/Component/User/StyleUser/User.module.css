@@ -1,0 +1,43 @@
+.content {
+  margin-right: auto;
+  margin-left: auto;
+  width: 600px; }
+  .content .exit {
+    background: white;
+    border: white;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 15px 0 0 300px; }
+  .content .profile {
+    display: flex;
+    justify-content: center; }
+    .content .profile .profile_info {
+      text-align: left;
+      margin: 0 0 0 20px; }
+  .content .bio {
+    margin: 15px auto 0 auto;
+    width: 400px; }
+  .content .input {
+    margin: 5px 0 15px 0;
+    width: 400px; }
+  .content .repos_info {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+    border: 1px solid black;
+    margin: 15px 0 15px 50px; }
+    .content .repos_info .repos_name {
+      margin: auto 0 auto 0;
+      padding: 0 0 0 5px; }
+    .content .repos_info .repos_stats {
+      margin: auto 5px auto 0; }
+      .content .repos_info .repos_stats .stats_forks {
+        margin: 0 auto 0 0; }
+      .content .repos_info .repos_stats .stats_stars {
+        margin: 0 auto 0 0; }
+  .content .not_found p {
+    font-size: 20px;
+    font-weight: 600; }
+
+/*# sourceMappingURL=User.module.css.map */

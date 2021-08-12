@@ -14,6 +14,7 @@ export type UserType = {
     created_at: string,
     followers: number,
     following: number
+    bio: string
 }
 
 

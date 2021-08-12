@@ -24,7 +24,10 @@ export const Users: React.FC = () => {
 
     return (
         <div className={s.content}>
-            <input type="text" onChange={e => setValue(e.target.value)} value={value}/>
+            <p>GitHub Search</p>
+
+            <input type="text" onChange={e => setValue(e.target.value)} value={value} className={s.input}
+                   placeholder={"Search for Users"}/>
             {value == '' ?
                 users.map((users: UsersType) => {
                         return (
@@ -36,10 +39,10 @@ export const Users: React.FC = () => {
                                 <div>
                                     <img src={users.avatar_url} alt="" width="75px" height="75px"/>
                                 </div>
-                                <div>
+                                <div className={s.name}>
                                     {users.login}
                                 </div>
-                                <div>
+                                <div className={s.repo}>
                                     <Reposytory userLogin={users.login}/>
                                 </div>
                             </div>
