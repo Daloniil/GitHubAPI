@@ -54,8 +54,6 @@ export const User: React.FC = () => {
                 dispatch(actions.setMode(false))
             }}>X
             </button>
-            <p>GitHub Search</p>
-
             <div className={s.profile}>
                 <div className={s.img}>
                     <img src={user.avatar_url} alt="" width="150px" height="150px"/>
@@ -69,9 +67,7 @@ export const User: React.FC = () => {
                         fontWeight: 800, color: typeColors[color]
                     }}> {user.followers} Followers</p>
                     <p>Following {user.following}</p>
-
                 </div>
-
             </div>
             <div className={s.bio}>
                 <p>{user.bio}</p>
@@ -118,10 +114,8 @@ export const User: React.FC = () => {
                                 </div>
                             </div>
                         }
-
                     </div>
                 }
-
             </div>
         </div>
     )

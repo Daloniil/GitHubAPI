@@ -102,6 +102,7 @@ export const getUser = (): ThunkType => {
 
 export const getProfile = (name: string): ThunkType => {
     return async (dispatch) => {
+        dispatch(actions.setUser({} as UserType))
         let data = await GitHubAPI.getProfile(name)
         dispatch(actions.setUser(data))
     }
@@ -119,8 +120,6 @@ export const getReposytory = (name: string, repos: string): ThunkType => {
         dispatch(actions.setReposytory({} as UserReposytoryType))
         let data = await GitHubAPI.getReposytory(name, repos)
         dispatch(actions.setReposytory(data))
-
-
     }
 }
 

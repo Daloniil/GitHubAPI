@@ -10,10 +10,11 @@ type ReposytoryLenghtType = {
     public_repos: number
 }
 
-
 export const Reposytory: React.FC<Props> = (props) => {
     const dispatch = useDispatch()
     const [repo, stateRepo] = useState({} as ReposytoryLenghtType)
+    const [load, setLoad] = useState(false)
+
 
     const GitPes = {
         getReposetors(name: string) {
@@ -30,12 +31,14 @@ export const Reposytory: React.FC<Props> = (props) => {
 
 
     useEffect(() => {
+        setLoad(true)
         dispatch(getReposytory(props.userLogin))
+        setLoad(false)
     }, [])
 
     return (
-        <div>
-            Repo: {repo.public_repos}
-        </div>
+        <>
+            {load == false ? <>{!repo.public_repos ? 'ERROR' : ` Repo:  ${repo.public_repos}`} </> : <p>Loading...</p>}
+        </>
     )
 }

@@ -41,5 +41,4 @@ export const typeColors: any = {
     '500000': '#C71585',
     '1000000': '#4B0082',
 
-
 }

@@ -12,6 +12,8 @@ const App: React.FC = () => {
 
     return (
         <div className="App">
+            <p>GitHub Search</p>
+
             {mode == false ? <Users/> : <User/>}
         </div>
     );
