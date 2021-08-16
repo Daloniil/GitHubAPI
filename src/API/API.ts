@@ -7,8 +7,8 @@ export const instance = axios.create({
 
 
 export const GitHubAPI = {
-    getUsers() {
-        return instance.get<Array<UsersType>>(`users`).then(res => res.data)
+    getUsers(name: string) {
+        return instance.get<Array<UsersType>>(`search/users?q=${name}`).then(res => res.data)
     },
     getProfile(name: string) {
         return instance.get<UserType>(`users/${name}`).then(res => res.data)

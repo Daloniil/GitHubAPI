@@ -93,10 +93,10 @@ export const actions = {
 type ThunkType = BaseThunkType<ActionsTypes>
 
 
-export const getUser = (): ThunkType => {
+export const getUser = (name: string): ThunkType => {
     return async (dispatch) => {
-        let data = await GitHubAPI.getUsers()
-        dispatch(actions.setUsers(data))
+        let data = await GitHubAPI.getUsers(name)
+        dispatch(actions.setUsers(data.items))
     }
 }
 
