@@ -1,30 +1,33 @@
+import axios from "axios";
 import React, {useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
-import {instance} from "../../../API/API";
 
 
 type Props = {
     userLogin: string
+    usersReposUrl: string
 }
-type ReposytoryLenghtType = {
-    public_repos: number
-}
+
 
 export const Reposytory: React.FC<Props> = (props) => {
     const dispatch = useDispatch()
-    const [repo, stateRepo] = useState({} as ReposytoryLenghtType)
+    const [repo, stateRepo] = useState([] as Array<any>)
     const [load, setLoad] = useState(false)
 
+    const instance = axios.create({
+        baseURL: ``,
+
+    });
 
     const GitPes = {
-        getReposetors(name: string) {
-            return instance.get<ReposytoryLenghtType>(`users/${name}`).then(res => res.data)
+        getReposetors() {
+            return instance.get<Array<any>>(props.usersReposUrl).then(res => res.data)
         },
     }
 
-    const getReposytory = (name: string) => {
+    const getReposytory = () => {
         return async () => {
-            let data = await GitPes.getReposetors(name)
+            let data = await GitPes.getReposetors()
             stateRepo(data)
         }
     }
@@ -32,13 +35,13 @@ export const Reposytory: React.FC<Props> = (props) => {
 
     useEffect(() => {
         setLoad(true)
-        dispatch(getReposytory(props.userLogin))
+        dispatch(getReposytory())
         setLoad(false)
     }, [])
 
     return (
         <>
-            {load == false ? <>{!repo.public_repos ? 'ERROR' : ` Repo:  ${repo.public_repos}`} </> : <p>Loading...</p>}
+            {load == false ? <>{!repo.length ? 'ERROR' : ` Repo:  ${repo.length}`} </> : <p>Loading...</p>}
         </>
     )
 }

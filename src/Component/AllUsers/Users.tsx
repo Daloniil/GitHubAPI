@@ -43,7 +43,7 @@ export const Users: React.FC = () => {
                                     {users.login}
                                 </div>
                                 <div className={s.repo}>
-                                    <Reposytory userLogin={users.login}/>
+                                    <Reposytory userLogin={users.login} usersReposUrl={users.repos_url}/>
                                 </div>
                             </div>
                         );

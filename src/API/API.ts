@@ -1,7 +1,7 @@
 import axios from "axios";
 import {UserReposytoryType, UsersType, UserType} from "../Types";
 
-export const instance = axios.create({
+ const instance = axios.create({
     baseURL: `https://api.github.com/`,
 });
 
