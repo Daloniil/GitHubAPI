@@ -2,7 +2,7 @@
   "name": "githubapi",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://daloniil.github.io/GitHubAPI/",
+  "homepage": "https://daloniil.github.io/GitHubAP/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
